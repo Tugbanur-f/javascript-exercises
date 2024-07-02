@@ -21,4 +21,4 @@ for (let i = 0; i < drinkTypes.length; i++) {
     }
 }
 
-console.log(`Hey guys, I brought a ${drinkTray.join(', ')}!`);
+console.log(`Hey guys, I brought a ${drinkTray.join(', ')}!`);z
