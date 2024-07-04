@@ -9,3 +9,14 @@
 
 // There are 3 different types of drinks:
 const drinkTypes = ['cola', 'lemonade', 'water'];
+const drinkTray = [];
+
+for (let i = 0; i < drinkTypes.length; i++) {
+for ( let a = 0; a < 2; a++){
+    if (drinkTray.length < 5){
+        drinkTray.push(drinkTypes[i]);
+    }
+  }
+}
+
+console.log(`Hey guys, I brought a ${drinkTray.join(', ')}!`);z
