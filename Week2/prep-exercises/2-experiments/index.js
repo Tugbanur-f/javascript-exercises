@@ -1,8 +1,14 @@
 "use strict";
 
 function runExperiment(sampleSize) {
-  const valueCounts = [0, 0, 0, 0, 0, 0];
+  const valueCount = [0, 0, 0, 0, 0, 0];
 
+  for (let i = 0; i < sampleSize; i++) {
+    let randomValue = Math.floor(Math.random() * 6) + 1;
+
+  valueCount[randomValue - 1]++;
+  }
+    
   // TODO
   // Write a for loop that iterates `sampleSize` times (sampleSize is a number).
   // In each loop iteration:
@@ -15,6 +21,11 @@ function runExperiment(sampleSize) {
 
   const results = [];
 
+for(let count of valueCount){
+ let percentage = ((count / sampleSize) * 100).toFixed(2);    
+ results.push(percentage);
+}
+  
   // TODO
   // Write a for..of loop for the `valueCounts` array created in the previous
   // loop. In each loop iteration:
@@ -30,6 +41,13 @@ function runExperiment(sampleSize) {
 
 function main() {
   const sampleSizes = [100, 1000, 1000000];
+  
+  for(let sampleSize of sampleSizes) {
+     let experimentResults = runExperiment(sampleSize);
+     console.log(experimentResults, sampleSize);
+  }
+
+  
 
   // TODO
   // Write a for..of loop that calls the `runExperiment()` function for each
