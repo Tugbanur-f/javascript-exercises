@@ -20,11 +20,6 @@ function getNextStateIndex(trafficLight) {
   
     return trafficLight.stateIndex;
 
-  // TODO
-  // Return the index of the next state of the `trafficLight` such that:
-  // - if the color is green, it will turn to orange
-  // - if the color is orange, it will turn to red
-  // - if the color is red, it will turn to green
 }
  
 
