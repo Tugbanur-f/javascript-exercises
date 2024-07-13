@@ -8,19 +8,28 @@ import { modules, students, mentors, classes } from "./hyf.js";
  *  ['John', 'Mary']
  */
 const possibleMentorsForModule = (moduleName) => {
-  // TODO complete this function
+  return mentors
+  .filter(mentor => mentor.canTeach.includes(moduleName))
+  .map(mentor => mentor.name); 
 };
-// You can uncomment out this line to try your function
-// console.log(possibleMentorsForModule('using-apis'));
+ console.log(possibleMentorsForModule('using-apis'));
 
 /**
  * Tjebbe wants to make it even easier for himself.
  * Fill in this function that chooses a random mentor to teach the given module.
  *
  * It should return a single name.
- */
+ */ // Choose a method that will return a single value
+// const word = cities.reduce((acc, currVal) => {
+//   return acc + currVal[0]
+// }, "C");
+
+// console.log(word)
+
 const findMentorForModule = (moduleName) => {
-  // TODO complete this function
-};
-// You can uncomment out this line to try your function
-// console.log(findMentorForModule('javascript'));
+    const possibleMentors = possibleMentorsForModule(moduleName);
+    return possibleMentors[Math.floor(Math.random() * possibleMentors.length)];
+
+ };
+
+console.log(findMentorForModule('javascript'));
