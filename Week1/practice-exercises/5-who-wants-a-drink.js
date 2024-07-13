@@ -10,13 +10,17 @@
 // There are 3 different types of drinks:
 const drinkTypes = ['cola', 'lemonade', 'water'];
 const drinkTray = [];
+const drinkIndex = {cola: 0, lemonade: 0, water: 0};
 
-for (let i = 0; i < drinkTypes.length; i++) {
-for ( let a = 0; a < 2; a++){
-    if (drinkTray.length < 5){
-        drinkTray.push(drinkTypes[i]);
-    }
-  }
+for (let i = 0; i < 5; i++) {
+let drink = drinkTypes[i % 3]
+
+  if(drinkIndex[drink] < 2) {
+    drinkTray.push(drink);
+    drinkIndex[drink]++;
+  }else {
+    i--;
+  } 
 }
 
-console.log(`Hey guys, I brought a ${drinkTray.join(', ')}!`);z
+console.log(`Hey guys, I brought a ${drinkTray.join(' , ')}!`);

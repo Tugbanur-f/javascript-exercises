@@ -21,3 +21,11 @@ const passwordList = [
     { times: '1-3', letter: 'b', password: 'cdefg'},
     { times: '2-9', letter: 'c', password: 'ccccccccc'}
 ];
+const validPasswords = passwordList => {
+    const minNumbers, maxNumbers = passwordList.filter((min, max)){
+    
+        return 
+    
+    }
+    console.log(validPasswords);
+}

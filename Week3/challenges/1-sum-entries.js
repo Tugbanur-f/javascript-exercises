@@ -9,6 +9,14 @@ Once you have found those numbers, multiply the numbers and store the result of 
 
 const list = [1721, 979, 366, 299, 675, 1456];
 let result;
+list.forEach((item, num) => { 
+  for(let i = num; i < list.length; i++){
+    if((item + list[i]) === 2020) {
+        result = item * list[i]
+    }
+  }
+  console.log(result);
+});
     
 // Write your code here
 
