@@ -4,13 +4,13 @@ class Wallet {
   #name;
   #cash;
   #dailyAllowance;
-  #dayTotalWithDrawals;
+  #dayTotalWithdrawals;
 
   constructor(name, cash) {
     this.#name = name;
     this.#cash = cash;
     this.#dailyAllowance = 40;
-    this.#dayTotalWithDrawals = 0;
+    this.#dayTotalWithdrawals = 0;
   }
   
   get name() {
@@ -22,8 +22,8 @@ class Wallet {
   }
 
   withdraw(amount) {
-    if(this.#dayTotalWithDrawals + amount > this.#dailyAllowance) {
-      console.log('Daily withdrawal limit exceeded!');
+    if(this.#dayTotalWithdrawals + amount > this.#dailyAllowance) {
+      console.log(`Insufficient remaining daily allowance!`);
       return 0;
     }
     if (this.#cash - amount < 0) {
@@ -32,7 +32,7 @@ class Wallet {
     }
 
     this.#cash -= amount;
-    this.#dayTotalWithDrawals += amount;
+    this.#dayTotalWithdrawals += amount;
     return amount;
   }
 
@@ -53,7 +53,7 @@ class Wallet {
   }
 
   resetDailyAllowance() {
-    this.#dayTotalWithDrawals = 0;
+    this.#dayTotalWithdrawals = 0;
   }
   
   setDailyAllowance() {

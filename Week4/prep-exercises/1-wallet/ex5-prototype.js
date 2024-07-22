@@ -1,8 +1,11 @@
 import eurosFormatter from './euroFormatter.js';
 
-function Wallet(name, cash) {
+function Wallet(name, cash, dailyAllowance = 40) {
   this._name = name;
   this._cash = cash;
+  this._dailyAllowance = dailyAllowance;
+  this._ddayTotalWithdrawals = 0;
+
 }
 
 Wallet.prototype.deposit = function (amount) {
@@ -10,12 +13,17 @@ Wallet.prototype.deposit = function (amount) {
 };
 
 Wallet.prototype.withdraw = function (amount) {
+  if(this._dayTotalWithdrawals + amount > this._dailyAllowance) {
+    console.log(`Insufficient remaining daily allowance!`);
+    return 0;
+}
   if (this._cash - amount < 0) {
     console.log(`Insufficient funds!`);
     return 0;
   }
 
   this._cash -= amount;
+  this._dayTotalWithdrawals += amount;
   return amount;
 };
 
@@ -37,6 +45,14 @@ Wallet.prototype.reportBalance = function () {
 
 Wallet.prototype.getName = function () {
   return this._name;
+};
+
+Wallet.prototype.resetDailyAllowance = function () {
+  this._dayTotalWithdrawals = 0;
+};
+
+Wallet.prototype.setDailyAllowance = function () {
+  this._dailyAllowance = newAllowance;
 };
 
 function main() {
